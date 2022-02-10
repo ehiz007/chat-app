@@ -122,6 +122,12 @@ input {
 	overflow-y: scroll;
 }
 
+.heading {
+	color: #fff;
+	font-size: 50px;
+	text-align: center;
+}
+
 /* Message Styles */
 
 .message {
