@@ -1,49 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Relate</title>
-		<link rel="stylesheet" href="/css/styles.css" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" />
-		<link
-			rel="stylesheet"
-			href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Dancing+Script&family=Truculenta&display=swap"
-		/>
-	</head>
-	<body>
-		<div>
-			<h1 class="heading">No-trace chat app</h1>
-		</div>
-		<div class="centered-form">
-			<div class="centered-form__box">
-				<form action="/chat.html">
-					<label for="username">Username:</label>
-					<input
-						type="text"
-						name="username"
-						id="username"
-						placeholder="username"
-						required
-					/>
-					<label for="room">Room ID:</label>
-					<input
-						type="text"
-						name="room"
-						id="room"
-						placeholder="room id"
-						required
-					/>
-					<button type="submit">JOIN</button>
-				</form>
-			</div>
-		</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Relate</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Dancing+Script&family=Truculenta&display=swap"
+    />
+  </head>
+  <body>
+    <div class="centered-form">
+      <div>
+        <h1 class="heading">No-trace chat app</h1>
+      </div>
+      <div class="centered-form__box">
+        <form action="/chat.html">
+          <label for="username">Username:</label>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            placeholder="username"
+            required
+          />
+          <label for="room">Room ID:</label>
+          <input
+            type="text"
+            name="room"
+            id="room"
+            placeholder="room id"
+            required
+          />
+          <button type="submit">JOIN</button>
+        </form>
+      </div>
+    </div>
 
-		<script src="/js/socket.io.js"></script>
-		<script src="/js/jquery.min.js"></script>
-		<script src="/js/moment.min.js"></script>
-		<script src="/js/mustache.min.js"></script>
-		<!-- <script src="/js/libs/deparam.js"></script> -->
-	</body>
+    <script src="/js/socket.io.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/moment.min.js"></script>
+    <script src="/js/mustache.min.js"></script>
+    <!-- <script src="/js/libs/deparam.js"></script> -->
+  </body>
 </html>

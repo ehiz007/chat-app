@@ -1,77 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Relate</title>
-		<link rel="stylesheet" href="/css/styles.css" />
-		<link
-			rel="stylesheet"
-			href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Dancing+Script&family=Truculenta&display=swap"
-		/>
-	</head>
-	<body>
-		<div class="chat">
-			<div class="chat__sidebar">
-				<div id="sidebar"></div>
-				<div class="leave-room">
-					<a href="/">Leave room</a>
-				</div>
-			</div>
-			<div class="chat__main">
-				<div id="messages" class="chat__messages"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Relate</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Dancing+Script&family=Truculenta&display=swap"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="chat">
+      <div class="menu">
+        <h3>No-trace chat</h3>
+        <button class="menu-button" id="btntoggle">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+      </div>
+      <div class="paratoggle">
+        <div class="chat__sidebar">
+          <div class="sidebar">
+            <div id="sidebar"></div>
+          </div>
+          <div class="leave-room">
+            <a href="/"
+              ><span>Leave room</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="exit-logo"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
 
-				<div class="compose">
-					<form id="form" class="" action="submit">
-						<input
-							type="text"
-							name="input"
-							placeholder="enter message"
-							autofocus
-						/>
-						<button onClick="submit">send</button>
-					</form>
-					<button id="share-location">share location</button>
-				</div>
-			</div>
-		</div>
-		<!-- Scripts -->
-		<script id="message-template" type="text/html">
-			<div class="message message-{{sender}}">
-				<p>
-					<span class="message__name">{{username}}</span>
-					<span class="message__meta">{{createdAt}}</span>
-				</p>
-				<p>{{message}}</p>
-			</div>
-		</script>
-		<script id="location-template" type="text/html">
-			<div class="message message-{{sender}}">
-				<p>
-					<span class="message__name">{{username}}</span>
-					<span class="message__meta">{{createdAt}}</span>
-				</p>
-				<p>
-					<a href="{{location}}" target="_blank">click to view location</a>
-				</p>
-			</div>
-		</script>
-		<script id="sidebar-template" type="text/html">
-			<h2 class="room-title">{{room}}</h2>
-			<h3 class="list-title">Users</h3>
-			<ul class="users">
-				{{#users}}
-				<li>{{username}}</li>
-				{{/users}}
-			</ul>
-		</script>
-		<script src="/js/socket.io.js"></script>
-		<script src="/js/jquery.min.js"></script>
-		<script src="/js/moment.min.js"></script>
-		<script src="/js/mustache.min.js"></script>
-		<script src="/js/qs.min.js"></script>
-		<!-- <script src="/js/chat.js"></script> -->
-		<script src="/js/chat.js"></script>
-	</body>
+      <div class="chat__main">
+        <div id="messages" class="chat__messages"></div>
+
+        <div class="compose">
+          <form id="form" class="" action="submit">
+            <input
+              type="text"
+              name="input"
+              placeholder="enter message"
+              autofocus
+            />
+            <button class="button" onClick="submit">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                x="0px"
+                y="0px"
+                width="48"
+                height="48"
+                viewBox="0 0 172 172"
+                style="fill: #000000"
+              >
+                <defs>
+                  <linearGradient
+                    x1="35.3245"
+                    y1="35.3245"
+                    x2="136.6755"
+                    y2="136.6755"
+                    gradientUnits="userSpaceOnUse"
+                    id="color-1_oWiuH0jFiU0R_gr1"
+                  >
+                    <stop offset="0" stop-color="#2ecc71"></stop>
+                    <stop offset="1" stop-color="#1abc9c"></stop>
+                  </linearGradient>
+                </defs>
+                <g
+                  fill="none"
+                  fill-rule="nonzero"
+                  stroke="none"
+                  stroke-width="1"
+                  stroke-linecap="butt"
+                  stroke-linejoin="miter"
+                  stroke-miterlimit="10"
+                  stroke-dasharray=""
+                  stroke-dashoffset="0"
+                  font-family="none"
+                  font-weight="none"
+                  font-size="none"
+                  text-anchor="none"
+                  style="mix-blend-mode: normal"
+                >
+                  <path d="M0,172v-172h172v172z" fill="none"></path>
+                  <g>
+                    <path
+                      d="M157.66667,86c0,39.57792 -32.08875,71.66667 -71.66667,71.66667c-39.57792,0 -71.66667,-32.08875 -71.66667,-71.66667c0,-39.57792 32.08875,-71.66667 71.66667,-71.66667c39.57792,0 71.66667,32.08875 71.66667,71.66667z"
+                      fill="url(#color-1_oWiuH0jFiU0R_gr1)"
+                    ></path>
+                    <path
+                      d="M36.25975,84.0865c29.22208,-13.24042 63.54325,-27.606 68.82867,-29.68433c11.653,-4.58308 16.73417,0.10033 15.93867,7.57158c-0.97825,9.15542 -5.61508,35.7975 -8.46742,54.88592c-1.66983,11.16925 -7.7185,14.59133 -14.54475,10.25908c-5.17792,-3.28592 -22.97992,-14.9425 -27.66333,-18.92717c-3.19275,-2.71617 -5.418,-5.762 -3.15333,-8.86517c0.66292,-0.90658 2.35783,-2.73408 3.30025,-3.64425c4.72642,-4.5795 4.08858,-5.56492 -1.62683,-1.47633c-0.68083,0.48733 -4.62967,3.35042 -6.25292,4.43258c-3.9775,2.65167 -7.63608,2.795 -13.83883,0.688c-5.074,-1.72358 -9.94733,-3.053 -13.02183,-4.38242c-4.24625,-1.83825 -5.87308,-7.96933 0.50167,-10.8575z"
+                      fill="#000000"
+                      opacity="0.05"
+                    ></path>
+                    <path
+                      d="M38.829,84.53442c27.133,-12.12958 60.501,-26.02933 65.3815,-27.99658c11.696,-4.72283 15.99958,-1.92067 14.74183,7.20608c-1.16817,8.4495 -5.31408,34.5935 -8.22017,52.11958c-1.71283,10.31642 -6.71517,12.58825 -13.22967,8.37425c-4.08142,-2.63017 -20.50742,-13.45183 -24.49208,-16.60158c-3.08167,-2.43308 -6.27442,-5.24242 -2.54417,-9.3095c1.247,-1.35808 8.13417,-8.00517 13.28342,-12.95017c2.98492,-2.87025 1.92067,-4.28567 -1.68058,-1.82033c-6.60408,4.52575 -17.40783,11.68883 -19.33567,12.98958c-3.67292,2.4725 -7.12367,3.06733 -13.12933,1.17892c-4.73358,-1.49067 -9.30592,-2.93475 -11.68883,-3.86283c-5.32483,-2.064 -5.3965,-6.50733 0.91375,-9.32742z"
+                      fill="#000000"
+                      opacity="0.07"
+                    ></path>
+                    <path
+                      d="M41.39825,84.98592c25.0475,-11.01875 57.45875,-24.45267 61.93433,-26.31242c11.73542,-4.86617 15.33667,-3.9345 13.54142,6.84417c-1.29,7.74717 -5.0095,33.39308 -7.9765,49.35683c-1.75942,9.46717 -5.70825,10.58875 -11.91458,6.493c-2.98492,-1.97083 -18.05283,-11.93608 -21.32442,-14.276c-2.98492,-2.13208 -7.10217,-4.69775 -1.93858,-9.75025c1.83825,-1.79883 13.88183,-13.30133 23.26658,-22.2525c1.22908,-1.17533 -0.31533,-3.10675 -1.73433,-2.16433c-12.64917,8.38858 -30.186,20.03083 -32.41842,21.54658c-3.37192,2.28975 -6.61125,3.33967 -12.42342,1.66983c-4.39317,-1.26133 -8.68242,-2.76633 -10.35225,-3.33967c-6.43208,-2.20733 -4.90558,-5.06683 1.34017,-7.81525z"
+                      fill="#ffffff"
+                    ></path>
+                  </g>
+                </g>
+              </svg>
+            </button>
+          </form>
+          <button id="share-location" class="location-button">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="rgb(247, 7, 7)"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Scripts -->
+    <script id="message-template" type="text/html">
+      <div class="message message-{{sender}}">
+        <p>
+          <span class="message__name">{{username}}</span>
+          <span class="message__meta">{{createdAt}}</span>
+        </p>
+        <p>{{message}}</p>
+      </div>
+    </script>
+    <script id="location-template" type="text/html">
+      <div class="message message-{{sender}}">
+        <p>
+          <span class="message__name">{{username}}</span>
+          <span class="message__meta">{{createdAt}}</span>
+        </p>
+        <p>
+          <a href="{{location}}" target="_blank">click to view location</a>
+        </p>
+      </div>
+    </script>
+    <script id="sidebar-template" type="text/html">
+      <h2 class="room-title"><span>room : {{room}}</span></h2>
+      <div class="users-section">
+        <h3 class="list-title"><span>Users :</span></h3>
+        <ul class="users">
+          {{#users}}
+          <li class="user-names">{{username}}</li>
+          {{/users}}
+        </ul>
+      </div>
+    </script>
+    <script src="/js/socket.io.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/moment.min.js"></script>
+    <script src="/js/mustache.min.js"></script>
+    <script src="/js/qs.min.js"></script>
+    <!-- <script src="/js/chat.js"></script> -->
+    <script src="/js/chat.js"></script>
+  </body>
 </html>
